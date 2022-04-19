@@ -80,10 +80,10 @@ int print_rot13(va_list l, flags_t *f)
 	 char *s = va_arg(l, char *);
 
 	 (void)f;
-		 for (j = 0; s[j]; j++)
+	 for (j = 0; s[j]; j++)
 	 {
 		 if (s[j] < 'A' || (s[j] > 'Z' && s[j] < 'a') || s[j] > 'z')
-				 _putchar(s[j]);
+			 _putchar(s[j]);
 		 else
 		 {
 			 for (i = 0; i <= 52; i++)
