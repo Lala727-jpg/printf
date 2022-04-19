@@ -5,9 +5,10 @@
 #include <stdarg.h>
 
 /**
- * struct flags - struct containing flags.
+ * struct flags - struct containing flags to "turn on"
+ * when a flag specifier is passed to _printf
  * @plus: flag for the '+' char
- * @space: flag for the space char
+ * @space: flag for the ' ' char
  * @hash: flag fir the '#' char
  */
 typedef struct flags
@@ -18,7 +19,8 @@ typedef struct flags
 } flags_t;
 
 /**
- * struct printHandler - strust to choose right task based.
+ * struct printHandler - struct to choose right function depending
+ * on the format specifier passed to _printf()
  * @c: format specifier
  * @f: format to the correct printing function.
  */
@@ -27,6 +29,7 @@ typedef struct printHandler
 	char c;
 	int (*f)(va_list ap, flags_t *f);
 } ph;
+
 /* print nums */
 int print_int(va_list l, flags_t *f);
 void print_number(int n);
@@ -41,18 +44,24 @@ int print_octal(va_list l, flags_t *f);
 
 /* converter */
 char *convert(unsigned long int num, int base, int lowercase);
-/* printf */
+
+/* _printf */
 int _printf(const char *format, ...);
-/* get print */
+
+/* get_print */
 int (*get_print(char s))(va_list, flags_t *);
-/* get_flags */
+
+/* get_flag */
 int get_flag(char s, flags_t *f);
-/* print alpha */
+
+/* print_alpha */
 int print_string(va_list l, flags_t *f);
 int print_char(va_list l, flags_t *f);
-/* write funcs */
+
+/* write_funcs */
 int _putchar(char c);
 int _puts(char *str);
+
 /* print_custom */
 int print_rot13(va_list l, flags_t *f);
 int print_rev(va_list l, flags_t *f);
@@ -60,7 +69,11 @@ int print_bigS(va_list l, flags_t *f);
 
 /* print_address */
 int print_address(va_list l, flags_t *f);
+
 /* print_percent */
 int print_percent(va_list l, flags_t *f);
+
+/* _putchar */
+int _putchar(char c);
 
 #endif
