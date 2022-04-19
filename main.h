@@ -28,5 +28,6 @@ int print_u(va_list ar_list);
 int print_o(va_list ar_list);
 int print_x(va_list ar_list);
 int print_X(va_list ar_list);
+int print_bigS(va_list l, flags_t *f);
 
 #endif
