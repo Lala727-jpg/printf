@@ -29,4 +29,6 @@ int print_o(va_list ar_list);
 int print_x(va_list ar_list);
 int print_X(va_list ar_list);
 
+int get_flag(char s, flags_t *f);
+
 #endif
