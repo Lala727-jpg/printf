@@ -30,4 +30,16 @@ int _printf(const char *format, ...)
 					i++;
 				}
 				else if (format[i + 1] != '\0')
-
+				{
+					o = get_func(format[i + 1]);
+					count += (o ? o(ar_list) : _putchar(format[i]) + _putchar(format[i + 1]));
+					i++;
+				}
+			}
+			else
+				count += _putchar(format[i]);
+		}
+		va_end(ar_list);
+	}
+	return (count);
+}
