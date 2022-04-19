@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	{
 		int i;
 		va_list ar_list;
-		int(*o)(va_list);
+		int (*o)(va_list);
 
 		va_start(ar_list, format);
 
